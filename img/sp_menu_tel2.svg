@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="142.5" height="30" viewBox="0 0 142.5 30">
+  <g id="グループ_2734" data-name="グループ 2734" transform="translate(-192.75 -399)">
+    <rect id="長方形_2812" data-name="長方形 2812" width="142.5" height="30" rx="3" transform="translate(192.75 399)" fill="#326dcc"/>
+    <g id="グループ_2663" data-name="グループ 2663" transform="translate(6337.01 19205)">
+      <g id="グループ_2659" data-name="グループ 2659" transform="translate(-78.06 21)">
+        <g id="グループ_2658" data-name="グループ 2658" transform="translate(-6035.897 -18818.59)">
+          <path id="パス_980" data-name="パス 980" d="M2261.878,271.711c.08,1.775,1.775,4.784,2.377,5.827s2.367,4.012,3.862,4.975a2.069,2.069,0,0,0,1.475.2,3.038,3.038,0,0,0,1.514-.762.87.87,0,0,0,.15-.652,4.52,4.52,0,0,0-.672-1.224,3.573,3.573,0,0,0-1.174-1.123.592.592,0,0,0-.531.191c-.12.11-.752.662-1.073.542a14.572,14.572,0,0,1-2.207-2.929,14.915,14.915,0,0,1-1.434-3.37c.07-.341.853-.6,1.013-.662a.576.576,0,0,0,.431-.361,3.63,3.63,0,0,0-.381-1.585,4.816,4.816,0,0,0-.732-1.194.85.85,0,0,0-.642-.191,3.093,3.093,0,0,0-1.414.933A2.115,2.115,0,0,0,2261.878,271.711Z" transform="translate(-2261.875 -269.393)" fill="#fff"/>
+        </g>
+        <rect id="長方形_2813" data-name="長方形 2813" width="20" height="20" transform="translate(-6041.2 -18821.9)" fill="none"/>
+      </g>
+      <text id="お問い合わせ" transform="translate(-6100 -18801)" fill="#fff" font-size="12" font-family="NotoSansJP-Bold, Noto Sans JP" font-weight="700"><tspan x="0" y="14">お</tspan><tspan y="14">問</tspan><tspan y="14">い</tspan><tspan y="14">合</tspan><tspan y="14">わせ</tspan></text>
+    </g>
+  </g>
+</svg>
