@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自己紹介 - Rei</title>
+    <link rel="icon" type="image/jpeg" href="img/profile.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="img/profile.jpg">
+    <link rel="apple-touch-icon" href="img/profile.jpg">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500;700;800&family=Yomogi&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            cursor: none;
+        }
+        
+        body {
+            font-family: 'M PLUS Rounded 1c', 'Yomogi', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease;
+            transform: translate(-50%, -50%);
+        }
+        
+        .custom-cursor svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8));
+        }
+        
+        .custom-cursor-dot {
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.05s ease;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+        }
+        
+        .custom-cursor.hover {
+            width: 30px;
+            height: 30px;
+        }
+        
+        .custom-cursor.hover svg {
+            filter: drop-shadow(0 0 6px rgba(255, 255, 255, 1));
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(2px 2px at 20% 30%, white, transparent),
+                radial-gradient(2px 2px at 60% 70%, white, transparent),
+                radial-gradient(1px 1px at 50% 50%, white, transparent),
+                radial-gradient(1px 1px at 80% 10%, white, transparent),
+                radial-gradient(2px 2px at 90% 40%, white, transparent),
+                radial-gradient(1px 1px at 33% 60%, white, transparent),
+                radial-gradient(1px 1px at 55% 80%, white, transparent),
+                radial-gradient(2px 2px at 10% 90%, white, transparent),
+                radial-gradient(1px 1px at 25% 15%, white, transparent),
+                radial-gradient(1px 1px at 70% 20%, white, transparent);
+            background-size: 200% 200%;
+            background-position: 0% 0%;
+            animation: stars 20s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        @keyframes stars {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 100% 100%; }
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(120, 119, 198, 0.3), transparent 50%),
+                radial-gradient(ellipse at 60% 70%, rgba(255, 119, 198, 0.2), transparent 50%),
+                radial-gradient(ellipse at 80% 10%, rgba(120, 219, 255, 0.2), transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+            animation: nebula 30s ease-in-out infinite alternate;
+        }
+        
+        @keyframes nebula {
+            0% { opacity: 0.5; transform: scale(1); }
+            100% { opacity: 0.8; transform: scale(1.1); }
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+                0 0 100px rgba(102, 126, 234, 0.1);
+            max-width: 700px;
+            width: 100%;
+            padding: 50px 40px;
+            margin: 40px 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.8s ease-out, float 6s ease-in-out infinite;
+            transform-style: preserve-3d;
+            transition: all 0.3s ease;
+        }
+        
+        .container:hover {
+            transform: translateY(-5px) rotateX(2deg);
+            box-shadow: 
+                0 12px 48px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+                0 0 150px rgba(102, 126, 234, 0.2);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotateX(0deg); }
+            50% { transform: translateY(-10px) rotateX(1deg); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .profile-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+        
+        .profile-image {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid transparent;
+            margin: 0 auto;
+            display: block;
+            box-shadow: 
+                0 15px 40px rgba(102, 126, 234, 0.4),
+                0 0 0 4px rgba(255, 255, 255, 0.1),
+                0 0 60px rgba(102, 126, 234, 0.2),
+                inset 0 0 30px rgba(102, 126, 234, 0.1);
+            background: #f0f0f0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 2;
+            filter: brightness(1.1) contrast(1.05);
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.08) rotateY(10deg) rotateX(5deg);
+            box-shadow: 
+                0 25px 60px rgba(102, 126, 234, 0.6),
+                0 0 0 4px rgba(255, 255, 255, 0.3),
+                0 0 100px rgba(102, 126, 234, 0.4),
+                inset 0 0 40px rgba(102, 126, 234, 0.2);
+            filter: brightness(1.2) contrast(1.1);
+        }
+        
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, #667eea, #764ba2, #f093fb, #ff6b9d, #667eea);
+            z-index: -1;
+            animation: rotate 4s linear infinite;
+            opacity: 0.8;
+        }
+        
+        .profile-image::after {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), transparent 70%);
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .profile-placeholder {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 6px solid transparent;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: white;
+            font-size: 64px;
+            font-weight: 900;
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4),
+                        0 0 0 4px rgba(255, 255, 255, 0.1),
+                        0 0 60px rgba(102, 126, 234, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+        
+        .profile-placeholder:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.5),
+                        0 0 0 4px rgba(255, 255, 255, 0.2),
+                        0 0 80px rgba(102, 126, 234, 0.3);
+        }
+        
+        :root {
+            --font-scale-name: 1;
+            --font-scale-h1: 1;
+            --font-scale-h2: 1;
+            --font-scale-quote: 1;
+            --font-scale-author: 1;
+            --font-scale-tag: 1;
+            --font-scale-button: 1;
+        }
+        
+        h1 {
+            color: #ffffff;
+            font-size: calc(32px * var(--font-scale-h1));
+            margin-bottom: 15px;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 1;
+            text-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.5),
+                0 0 20px rgba(255, 255, 255, 0.3),
+                0 2px 5px rgba(0, 0, 0, 0.2);
+            font-family: 'M PLUS Rounded 1c', 'Yomogi', sans-serif;
+        }
+        
+        .name {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 30%, #f093fb 60%, #ff6b9d 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: calc(56px * var(--font-scale-name));
+            margin-bottom: 40px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            position: relative;
+            display: inline-block;
+            animation: gradientShift 3s ease infinite, glow 2s ease-in-out infinite alternate;
+            text-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+            font-family: 'M PLUS Rounded 1c', 'Yomogi', sans-serif;
+        }
+        
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px rgba(102, 126, 234, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.8)); }
+        }
+        
+        .name::before {
+            content: 'Rei';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 30%, #f093fb 60%, #ff6b9d 100%);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease infinite;
+            z-index: -1;
+            filter: blur(10px);
+            opacity: 0.7;
+        }
+        
+        .name::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            border-radius: 2px;
+            animation: expand 2s ease-in-out infinite;
+        }
+        
+        @keyframes expand {
+            0%, 100% { width: 80px; opacity: 1; }
+            50% { width: 120px; opacity: 0.7; }
+        }
+        
+        .section {
+            margin: 35px 0;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px) saturate(150%);
+            -webkit-backdrop-filter: blur(15px) saturate(150%);
+            border-radius: 25px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .section:hover::before {
+            left: 100%;
+        }
+        
+        .section:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 15px 50px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+        
+        .section h2 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: calc(26px * var(--font-scale-h2));
+            margin-bottom: 20px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 15px;
+            display: inline-block;
+            font-family: 'M PLUS Rounded 1c', 'Yomogi', sans-serif;
+            text-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+        }
+        
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        .section p {
+            color: #4a5568;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .hobbies {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .hobby-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-size: 200% 200%;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 35px;
+            font-size: calc(15px * var(--font-scale-tag));
+            font-weight: 500;
+            box-shadow: 
+                0 6px 20px rgba(102, 126, 234, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+                0 0 30px rgba(102, 126, 234, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            animation: gradientShift 3s ease infinite;
+            font-family: 'M PLUS Rounded 1c', 'Yomogi', sans-serif;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hobby-tag::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .hobby-tag::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 35px;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .hobby-tag:hover {
+            transform: translateY(-5px) scale(1.08) rotate(2deg);
+            box-shadow: 
+                0 12px 40px rgba(102, 126, 234, 0.6),
+                0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+                0 0 50px rgba(102, 126, 234, 0.4);
+            animation: none;
+        }
+        
+        .hobby-tag:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+        
+        .hobby-tag:hover::after {
+            opacity: 1;
+        }
+        
+        .hobby-tag span {
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .font-size-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .font-size-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-size: 200% 200%;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: calc(14px * var(--font-scale-button));
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 
+                0 6px 20px rgba(102, 126, 234, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+                0 0 30px rgba(102, 126, 234, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            font-family: 'M PLUS Rounded 1c', 'Yomogi', sans-serif;
+            letter-spacing: 1px;
+            animation: gradientShift 3s ease infinite;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .font-size-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .font-size-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 
+                0 10px 30px rgba(102, 126, 234, 0.7),
+                0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+                0 0 50px rgba(102, 126, 234, 0.5);
+            animation: none;
+        }
+        
+        .font-size-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .font-size-button:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+        
+        .font-size-button.active {
+            background: linear-gradient(135deg, #f093fb 0%, #ff6b9d 100%);
+            box-shadow: 
+                0 8px 25px rgba(240, 147, 251, 0.6),
+                0 0 0 2px rgba(255, 255, 255, 0.3) inset,
+                0 0 40px rgba(240, 147, 251, 0.4);
+        }
+        
+        .social-links {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-size: 200% 200%;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            box-shadow: 
+                0 8px 25px rgba(102, 126, 234, 0.5),
+                0 0 0 2px rgba(255, 255, 255, 0.1) inset,
+                0 0 30px rgba(102, 126, 234, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        .social-link svg {
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+        
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: 1;
+        }
+        
+        .social-link::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, #667eea, #764ba2, #f093fb, #ff6b9d, #667eea);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+            animation: rotate 3s linear infinite;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-8px) scale(1.15) rotate(5deg);
+            box-shadow: 
+                0 15px 40px rgba(102, 126, 234, 0.7),
+                0 0 0 2px rgba(255, 255, 255, 0.3) inset,
+                0 0 50px rgba(102, 126, 234, 0.5);
+            animation: none;
+        }
+        
+        .social-link:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+        
+        .social-link:hover::after {
+            opacity: 1;
+        }
+        
+        .social-link:active {
+            transform: translateY(-4px) scale(1.1);
+        }
+        
+        .quote-section {
+            margin: 35px 0;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px) saturate(150%);
+            -webkit-backdrop-filter: blur(15px) saturate(150%);
+            border-radius: 25px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                0 0 50px rgba(102, 126, 234, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quote-section::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            font-size: 120px;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: Georgia, serif;
+            line-height: 1;
+            opacity: 0.3;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .quote-section::after {
+            content: '"';
+            position: absolute;
+            bottom: -40px;
+            right: 30px;
+            font-size: 120px;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: Georgia, serif;
+            line-height: 1;
+            opacity: 0.3;
+            animation: float 4s ease-in-out infinite 2s;
+        }
+        
+        .quote-section:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 15px 50px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2),
+                0 0 80px rgba(102, 126, 234, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+        
+        .quote-text {
+            font-size: calc(22px * var(--font-scale-quote));
+            line-height: 2;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 500;
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 20px rgba(255, 255, 255, 0.3);
+            font-family: 'M PLUS Rounded 1c', 'Yomogi', sans-serif;
+            letter-spacing: 1px;
+        }
+        
+        .quote-author {
+            font-size: calc(15px * var(--font-scale-author));
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 400;
+            margin-top: 15px;
+            position: relative;
+            z-index: 1;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'M PLUS Rounded 1c', 'Yomogi', sans-serif;
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            html {
+                cursor: auto;
+            }
+            
+            .custom-cursor,
+            .custom-cursor-dot {
+                display: none;
+            }
+            
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 30px 20px;
+                margin: 10px;
+                border-radius: 25px;
+            }
+            
+            .profile-image,
+            .profile-placeholder {
+                width: 150px;
+                height: 150px;
+            }
+            
+            h1 {
+                font-size: 24px;
+                letter-spacing: 2px;
+            }
+            
+            .name {
+                font-size: 40px;
+                letter-spacing: 2px;
+            }
+            
+            .section {
+                padding: 20px;
+                margin: 25px 0;
+            }
+            
+            .section h2 {
+                font-size: 22px;
+            }
+            
+            .hobby-tag {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+            
+            .quote-section {
+                padding: 25px 20px;
+                margin: 25px 0;
+            }
+            
+            .quote-text {
+                font-size: 18px;
+                line-height: 1.8;
+            }
+            
+            .quote-author {
+                font-size: 13px;
+            }
+            
+            .quote-section::before,
+            .quote-section::after {
+                font-size: 80px;
+            }
+            
+            .social-link {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .font-size-controls {
+                gap: 10px;
+                margin-top: 20px;
+            }
+            
+            .font-size-button {
+                padding: 10px 18px;
+                font-size: 12px;
+            }
+            
+            .rhythm-game-container {
+                padding: 20px;
+                margin: 40px auto 20px;
+            }
+            
+            .game-lane {
+                height: 300px;
+            }
+            
+            .game-title {
+                font-size: 22px;
+            }
+            
+            .game-score {
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 15px;
+                margin: 5px;
+            }
+            
+            .profile-image,
+            .profile-placeholder {
+                width: 120px;
+                height: 120px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            .name {
+                font-size: 32px;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+            
+            .section h2 {
+                font-size: 20px;
+            }
+            
+            .hobby-tag {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+            
+            .quote-text {
+                font-size: 16px;
+            }
+            
+            .quote-section::before {
+                top: -15px;
+                left: 15px;
+                font-size: 60px;
+            }
+            
+            .quote-section::after {
+                bottom: -25px;
+                right: 15px;
+                font-size: 60px;
+            }
+            
+            .font-size-button {
+                padding: 8px 14px;
+                font-size: 11px;
+            }
+            
+            .rhythm-game-container {
+                padding: 15px;
+            }
+            
+            .game-lane {
+                height: 250px;
+            }
+            
+            .game-lane-container {
+                gap: 5px;
+            }
+            
+            .lane-label {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-wrapper">
+            <img src="img/profile.jpg" alt="プロフィール写真" class="profile-image" 
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="profile-placeholder" style="display: none;">古</div>
+        </div>
+        <h1>自己紹介</h1>
+        <div class="name">Rei</div>
+        
+        <div class="section">
+            <h2>趣味</h2>
+            <div class="hobbies">
+                <span class="hobby-tag"><span>🎮 ゲーム</span></span>
+                <span class="hobby-tag"><span>🎬 映画鑑賞</span></span>
+                <span class="hobby-tag"><span>💬 コミュニゲーション</span></span>
+            </div>
+        </div>
+        
+        <div class="quote-section">
+            <div class="quote-text">
+                言語の限界は思考の限界である
+            </div>
+            <div class="quote-author">— ルートヴィヒ・ウィトゲンシュタイン</div>
+        </div>
+        
+        <div class="social-links">
+            <a href="https://x.com/12T5" target="_blank" rel="noopener noreferrer" class="social-link" title="X (Twitter)">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/>
+                </svg>
+            </a>
+        </div>
+        
+        <div class="font-size-controls">
+            <button class="font-size-button" onclick="changeFontSize('small', event)">小</button>
+            <button class="font-size-button active" onclick="changeFontSize('medium', event)">中</button>
+            <button class="font-size-button" onclick="changeFontSize('large', event)">大</button>
+        </div>
+    </div>
+    
+    <div class="custom-cursor">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12,21.35l-1.45-1.32C5.4,15.36,2,12.28,2,8.5 C2,5.42,4.42,3,7.5,3c1.74,0,3.41,0.81,4.5,2.09C13.09,3.81,14.76,3,16.5,3 C19.58,3,22,5.42,22,8.5c0,3.78-3.4,6.86-8.55,11.54L12,21.35z" fill="#000000" stroke="#ffffff" stroke-width="2"/>
+        </svg>
+    </div>
+    <div class="custom-cursor-dot"></div>
+    
+    <canvas id="particles" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0;"></canvas>
+    
+    <script>
+        // カスタムカーソル
+        const cursor = document.querySelector('.custom-cursor');
+        const cursorDot = document.querySelector('.custom-cursor-dot');
+        
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            cursorDot.style.left = e.clientX + 'px';
+            cursorDot.style.top = e.clientY + 'px';
+        });
+        
+        // ホバー時のカーソル拡大
+        const hoverElements = document.querySelectorAll('a, button, .hobby-tag, .social-link');
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+        
+        // パーティクルエフェクト
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const particles = [];
+        const particleCount = 50;
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.5 - 0.25;
+                this.speedY = Math.random() * 0.5 - 0.25;
+                this.opacity = Math.random() * 0.5 + 0.2;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            
+            draw() {
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+        
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        
+        animateParticles();
+        
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        
+        // スクロールアニメーション
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.section, .quote-section').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+        
+    </script>
+    
+    <script>
+        // 文字サイズ変更機能
+        let currentFontSize = 'medium';
+        
+        const fontSizeSettings = {
+            small: {
+                name: 0.85,
+                h1: 0.85,
+                h2: 0.85,
+                quote: 0.85,
+                author: 0.85,
+                tag: 0.85,
+                button: 0.85
+            },
+            medium: {
+                name: 1,
+                h1: 1,
+                h2: 1,
+                quote: 1,
+                author: 1,
+                tag: 1,
+                button: 1
+            },
+            large: {
+                name: 1.2,
+                h1: 1.15,
+                h2: 1.15,
+                quote: 1.15,
+                author: 1.1,
+                tag: 1.1,
+                button: 1.1
+            }
+        };
+        
+        function changeFontSize(size, event) {
+            currentFontSize = size;
+            const settings = fontSizeSettings[size];
+            const root = document.documentElement;
+            
+            // CSS変数を使用してフォントサイズを変更
+            root.style.setProperty('--font-scale-name', settings.name);
+            root.style.setProperty('--font-scale-h1', settings.h1);
+            root.style.setProperty('--font-scale-h2', settings.h2);
+            root.style.setProperty('--font-scale-quote', settings.quote);
+            root.style.setProperty('--font-scale-author', settings.author);
+            root.style.setProperty('--font-scale-tag', settings.tag);
+            root.style.setProperty('--font-scale-button', settings.button);
+            
+            // ボタンのアクティブ状態を更新
+            document.querySelectorAll('.font-size-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+            
+            // ローカルストレージに保存
+            localStorage.setItem('fontSize', size);
+        }
+        
+        // ページ読み込み時に保存されたフォントサイズを適用
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedSize = localStorage.getItem('fontSize') || 'medium';
+            const settings = fontSizeSettings[savedSize];
+            const root = document.documentElement;
+            
+            // CSS変数を設定
+            root.style.setProperty('--font-scale-name', settings.name);
+            root.style.setProperty('--font-scale-h1', settings.h1);
+            root.style.setProperty('--font-scale-h2', settings.h2);
+            root.style.setProperty('--font-scale-quote', settings.quote);
+            root.style.setProperty('--font-scale-author', settings.author);
+            root.style.setProperty('--font-scale-tag', settings.tag);
+            root.style.setProperty('--font-scale-button', settings.button);
+            
+            // ボタンのアクティブ状態を設定
+            document.querySelectorAll('.font-size-button').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('onclick').includes(`'${savedSize}'`)) {
+                    btn.classList.add('active');
+                }
+            });
+        });
+        
+        // リズムゲーム
+        let gameRunning = false;
+        let gameScore = 0;
+        let noteInterval = null;
+        let noteSpeed = 2000; // ノートが落ちる速度（ミリ秒）
+        const hitZone = 80; // ヒット判定の範囲（px）
+        
+        function startGame() {
+            if (gameRunning) return;
+            
+            gameRunning = true;
+            gameScore = 0;
+            document.getElementById('score').textContent = '0';
+            document.querySelector('.game-start-button').style.display = 'none';
+            document.querySelector('.game-stop-button').style.display = 'inline-block';
+            
+            // ノートを生成
+            noteInterval = setInterval(() => {
+                if (!gameRunning) return;
+                createNote();
+            }, 800);
+            
+            // キーボードイベント
+            document.addEventListener('keydown', handleKeyPress);
+        }
+        
+        function stopGame() {
+            gameRunning = false;
+            if (noteInterval) {
+                clearInterval(noteInterval);
+            }
+            document.querySelector('.game-start-button').style.display = 'inline-block';
+            document.querySelector('.game-stop-button').style.display = 'none';
+            document.removeEventListener('keydown', handleKeyPress);
+            
+            // 残っているノートを削除
+            document.querySelectorAll('.note').forEach(note => note.remove());
+        }
+        
+        function createNote() {
+            const lanes = document.querySelectorAll('.game-lane');
+            const randomLane = lanes[Math.floor(Math.random() * lanes.length)];
+            const laneArea = randomLane.querySelector('.lane-area');
+            
+            const note = document.createElement('div');
+            note.className = 'note';
+            note.style.animationDuration = noteSpeed + 'ms';
+            laneArea.appendChild(note);
+            
+            // ノートが画面外に出たら削除
+            setTimeout(() => {
+                if (note.parentNode && !note.classList.contains('hit') && !note.classList.contains('miss')) {
+                    note.remove();
+                }
+            }, noteSpeed);
+        }
+        
+        function handleKeyPress(event) {
+            const key = event.key.toLowerCase();
+            const lanes = {
+                'a': 0,
+                's': 1,
+                'd': 2,
+                'f': 3
+            };
+            
+            if (!lanes.hasOwnProperty(key)) return;
+            
+            const laneIndex = lanes[key];
+            const lane = document.querySelectorAll('.game-lane')[laneIndex];
+            const laneArea = lane.querySelector('.lane-area');
+            const notes = laneArea.querySelectorAll('.note');
+            
+            // レーンをハイライト
+            lane.classList.add('active');
+            setTimeout(() => lane.classList.remove('active'), 150);
+            
+            // ヒット判定
+            let hit = false;
+            notes.forEach(note => {
+                const noteTop = note.getBoundingClientRect().top;
+                const hitLineTop = lane.querySelector('.lane-area').getBoundingClientRect().bottom - hitZone;
+                
+                if (noteTop >= hitLineTop - 30 && noteTop <= hitLineTop + 30 && !note.classList.contains('hit') && !note.classList.contains('miss')) {
+                    note.classList.add('hit');
+                    note.style.animation = 'none';
+                    gameScore += 10;
+                    document.getElementById('score').textContent = gameScore;
+                    hit = true;
+                    setTimeout(() => note.remove(), 300);
+                }
+            });
+            
+            // ミス判定（該当レーンにノートがない場合）
+            if (!hit && notes.length > 0) {
+                const closestNote = Array.from(notes).reduce((closest, note) => {
+                    const noteTop = note.getBoundingClientRect().top;
+                    const hitLineTop = lane.querySelector('.lane-area').getBoundingClientRect().bottom - hitZone;
+                    const closestTop = closest ? closest.getBoundingClientRect().top : Infinity;
+                    return Math.abs(noteTop - hitLineTop) < Math.abs(closestTop - hitLineTop) ? note : closest;
+                }, null);
+                
+                if (closestNote) {
+                    const noteTop = closestNote.getBoundingClientRect().top;
+                    const hitLineTop = lane.querySelector('.lane-area').getBoundingClientRect().bottom - hitZone;
+                    if (Math.abs(noteTop - hitLineTop) > 50) {
+                        closestNote.classList.add('miss');
+                        setTimeout(() => closestNote.remove(), 300);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
