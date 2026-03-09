@@ -1,5 +1,9 @@
 # ayame - 自己紹介サイト
 
+**🌐 公開サイト: [https://ayame-jp.github.io/my-first-site/](https://ayame-jp.github.io/my-first-site/)**
+
+---
+
 ## 公開URL（GitHub Pages）
 
 **以下の手順で有効にすると、誰でもアクセスできるURLで公開されます。**
