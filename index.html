@@ -128,23 +128,11 @@
             text-align: center;
         }
 
-        /* ===== プロフィール画像: チェス盤フレーム ===== */
+        /* ===== プロフィール画像 ===== */
         .profile-frame {
             display: inline-block;
             position: relative;
             margin-bottom: 28px;
-        }
-
-        /* 外枠: 8×1 チェス格子リング */
-        .chess-ring {
-            width: 224px;
-            height: 224px;
-            border-radius: 50%;
-            padding: 12px;
-            background:
-                repeating-conic-gradient(var(--board-black) 0% 25%, var(--sq-light) 0% 50%)
-                0 0 / 28px 28px;
-            box-shadow: 0 6px 24px rgba(28,17,10,0.22);
         }
 
         .profile-inner {
@@ -152,11 +140,7 @@
             height: 200px;
             border-radius: 50%;
             overflow: hidden;
-            background: linear-gradient(145deg, var(--sq-light), var(--sq-dark));
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            box-shadow: 0 6px 24px rgba(28,17,10,0.22);
         }
 
         .profile-inner img {
@@ -171,6 +155,11 @@
             color: var(--board-black);
             line-height: 1;
             display: none;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, var(--sq-light), var(--sq-dark));
         }
 
         /* ===== 見出し ===== */
@@ -486,12 +475,10 @@
 
             <!-- プロフィール画像 -->
             <div class="profile-frame">
-                <div class="chess-ring">
-                    <div class="profile-inner">
-                        <img src="assets/icon.png" alt="プロフィール写真"
-                             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <span class="icon-fallback">♛</span>
-                    </div>
+                <div class="profile-inner">
+                    <img src="assets/icon.jpg" alt="プロフィール写真"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <span class="icon-fallback">♛</span>
                 </div>
             </div>
 
